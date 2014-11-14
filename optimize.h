@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include "tags.h"
-#endif /* defined(__cssOptimize__optimize__) */
-
 
 void keep_last_prop(t_tag** list);
+
+#endif /* defined(__cssOptimize__optimize__) */

@@ -12,7 +12,7 @@
 #include "my_string.h"
 #include <stdio.h>
 
-#endif /* defined(__cssOptimize__properties__) */
+
 
 typedef struct s_properties{
     char* prop;
@@ -31,3 +31,4 @@ void list_prop_free(t_properties** maillon);
 int list_prop_get_by_prop(t_properties* maillon, char* prop);
 char* list_prop_get_prop_by_index(t_properties* maillon, int index);
 char* list_prop_get_value_by_index(t_properties* maillon, int index);
+#endif /* defined(__cssOptimize__properties__) */

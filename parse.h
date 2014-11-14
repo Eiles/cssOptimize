@@ -13,7 +13,8 @@
 #include "my_string.h"
 #include "tags.h"
 
-#endif /* defined(__cssOptimize__parse__) */
 
 void populate_tags(t_tag**,char* string);
 void parseID(t_tag** list,char* string, t_properties* props);
+
+#endif /* defined(__cssOptimize__parse__) */

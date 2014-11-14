@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#endif /* defined(__cssOptimize__my_string__) */
+
 
 int my_strcmp(char*, char*);
 int my_strlen(char*);
@@ -25,3 +25,4 @@ char* my_strcpy(char* s1);
 char* my_strconcat(char*,char*);
 char* my_striconcat(char*,char*,int);
 char* my_substr(char* s1,int n,int offset);
+#endif /* defined(__cssOptimize__my_string__) */

@@ -12,10 +12,12 @@
 #include <stdio.h>
 #include "my_string.h"
 
-#endif /* defined(__cssOptimize__format__) */
+
 
 char* suppressNewline(char* string);
 char* suppressSpaceAccol(char* string);
 char* suppressSpaceDeuxPoint(char* string);
 char* suppressSpacePointVirg(char* string);
 char* suppressComments(char* string);
+
+#endif /* defined(__cssOptimize__format__) */
