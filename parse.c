@@ -14,12 +14,11 @@ void populate_tags(t_tag** list,char* string){
     char* ids;
     char* prop="";
     char* value="";
+    int length=my_strlen(string);
     t_properties* props=NULL;
-    while(string[i]!='\0'){
+    while(string[i]!='\0' && i<length){
         if(string[i]=='{'){
             ids=my_substr(string, i-j, j);
-            /*parseID(s);
-            free(s);*/
             i++;
             j=i;
             while(string[i]!='}' && string[i]!='\0'){

@@ -164,29 +164,31 @@ char* my_substr(char* s1,int n,int offset){
 //Concat v2 at the end of v1 in a new string and return it
 char* my_strconcat(char* v1,char* v2){
     int i;
-    char* p=malloc(my_strlen(v1) + my_strlen(v2) +1);
-    p[my_strlen(v1) + my_strlen(v2)]='\0';
-    for(i=0;i<my_strlen(v1);i++){
+    int length1=my_strlen(v1);
+    int length2=my_strlen(v2);
+    char* p=malloc(length1 + length2 +1);
+    p[length1 + length2]='\0';
+    for(i=0;i<length1;i++){
         p[i]=v1[i];
     }
-    for(i=my_strlen(v1);i<my_strlen(v1) + my_strlen(v2);i++){
-        p[i]=v2[i-my_strlen(v1)];
+    for(i=length1;i<length1 + length2;i++){
+        p[i]=v2[i-length1];
     }
     
     return p;	
 }
 
 char* my_striconcat(char* v1, char* v2, int start) {
-    
     int i;
-    char* p=malloc(sizeof(char)*(start + strlen(v2) +1));
-    p[start + strlen(v2)]='\0';
+    int length=my_strlen(v2);
+    char* p=malloc(sizeof(char)*(start + length +1));
+    p[start + length]='\0';
     
     for(i=0;i<start;i++){
         p[i]=v1[i];
     }
     
-    for(i=start;i<start + strlen(v2);i++){
+    for(i=start;i<start + length;i++){
         p[i]=v2[i-start];
     }
     

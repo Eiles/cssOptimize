@@ -60,8 +60,6 @@ int main(int argc, const char * argv[]) {
     buffer = suppressComments(buffer);
     printf("The file called test.css contains this text\n\n%s", buffer);
     fclose(css);
-    for(i=0;buffer[i]!='\0';i++);
-    printf("\n%ld\n%d\n",numbytes,i);
     t_tag* list=NULL;
     populate_tags(&list,buffer);
     list_tag_display(list);
