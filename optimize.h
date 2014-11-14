@@ -14,3 +14,4 @@
 #endif /* defined(__cssOptimize__optimize__) */
 
 
+void keep_last_prop(t_tag** list);

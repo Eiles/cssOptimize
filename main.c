@@ -6,12 +6,16 @@
 //  Copyright (c) 2014 Elie Raffier. All rights reserved.
 //
 
+#ifndef __cssOptimize__main__
+#define __cssOptimize__main__
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "my_string.h"
 #include "format.h"
 #include "parse.h"
-
+#include "optimize.h"
+#endif /* defined(__cssOptimize__main__) */
 
 int main(int argc, const char * argv[]) {
     /*char s1[4]="foo";
@@ -20,7 +24,6 @@ int main(int argc, const char * argv[]) {
     char s4[4]="bar";
     char s[]="azertyuiopqsdfghjklm";*/
     long numbytes=0;
-    int i;
     /*printf("Testing my_strlen, length of %s : ",s1);
     printf("%d\n",my_strlen(s1));
     
@@ -62,6 +65,7 @@ int main(int argc, const char * argv[]) {
     fclose(css);
     t_tag* list=NULL;
     populate_tags(&list,buffer);
+    keep_last_prop(&list);
     list_tag_display(list);
     free(buffer);
     return 0;

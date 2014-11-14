@@ -14,7 +14,7 @@
 #include "properties.h"
 #include "my_string.h"
 
-#endif /* defined(__cssOptimize__tags__) */
+
 
 typedef struct s_tag{
     char* name;
@@ -30,3 +30,4 @@ void list_tag_append(t_tag** list, char* name, t_properties* props);
 void list_tag_insert(t_tag** list, unsigned int index, char* name,t_properties* props);
 int list_tag_get_by_name(t_tag* maillon,char* name);
 void list_tag_free(t_tag** maillon);
+#endif /* defined(__cssOptimize__tags__) */

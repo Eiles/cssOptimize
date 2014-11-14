@@ -104,6 +104,55 @@ int list_prop_get_by_prop_value(t_properties* maillon,char* prop, char* value){
     }
     return -1;
 }
+
+int list_prop_get_by_prop(t_properties* maillon, char* prop){
+    int i=0;
+    if(maillon == NULL)
+        return -1;
+    while (maillon!=NULL) {
+        if(my_strcmp(maillon->prop,prop)==0){
+            return i;
+        }
+        i++;
+        maillon=maillon->next;
+    }
+    return -1;
+}
+
+char* list_prop_get_prop_by_index(t_properties* maillon, int index){
+    char* c =NULL;
+    int i=0;
+    if(maillon == NULL)
+        return c;
+    
+    while (i!=index && maillon->next!=NULL) {
+        i++;
+        maillon=maillon->next;
+    }
+    if(i==index){
+        c=my_strcpy(maillon->prop);
+        return c;
+    }
+    return c;
+}
+
+char* list_prop_get_value_by_index(t_properties* maillon, int index){
+    char* c =NULL;
+    int i=0;
+    if(maillon == NULL)
+        return c;
+    
+    while (i!=index && maillon->next!=NULL) {
+        i++;
+        maillon=maillon->next;
+    }
+    if(i==index){
+        c=my_strcpy(maillon->value);
+        return c;
+    }
+    return c;
+}
+
 void list_prop_free(t_properties** maillon){
     t_properties* p;
     while((*maillon)->next!=NULL){
