@@ -46,14 +46,25 @@ void populate_tags(t_tag** list,char* string){
 }
 
 void parseID(t_tag** list,char* string,t_properties* props){
-    int i,j;
+    int i,j,k,index;
     char* s;
+    t_tag* tmp;
     j=0;
     for (i=0; i<my_strlen(string); i++) {
         if(string[i]==','){
             s=my_substr(string, i-j, j);
             if(list_tag_get_by_name(*list, s)==-1){
                 list_tag_append(list, s, props);
+            }else{
+                tmp=(*list);
+                index=list_tag_get_by_name(*list, s);
+                for(k=0;k<index;k++){
+                    tmp=tmp->next;
+                }
+                while(props!=NULL){
+                    list_prop_append(&tmp->props,props->prop , props->value);
+                    props=props->next;
+                }
             }
             free(s);
             while(string[i]==' ' || string[i]==','){
@@ -65,6 +76,16 @@ void parseID(t_tag** list,char* string,t_properties* props){
     s=my_substr(string, i-j, j);
     if(list_tag_get_by_name(*list, s)==-1){
         list_tag_append(list, s, props);
+    }else{
+        tmp=(*list);
+        index=list_tag_get_by_name(*list, s);
+        for(k=0;k<index;k++){
+            tmp=tmp->next;
+        }
+        while(props!=NULL){
+            list_prop_append(&tmp->props,props->prop , props->value);
+            props=props->next;
+        }
     }
     free(s);
     j=i;
