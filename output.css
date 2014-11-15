@@ -1,0 +1,48 @@
+.left,.right
+{
+	width:20%;
+}
+.left,.center,.right
+{
+	margin:0 0;
+	float:left;
+}
+#row1,#row3
+{
+	height:20%;
+}
+#row1,#row2,#row3,video
+{
+	width:100%;
+}
+#row1,#row2,#row3
+{
+	display:block;
+}
+chtml,body,.left,.center,.right,video
+{
+	height:100%;
+}
+body
+{
+	background:#e7e3e3;
+}
+#row2
+{
+	height:60%;
+}
+.center
+{
+	width:60%;
+	text-align:center;
+}
+h1
+{
+		padding:0;
+		margin:0;
+		color:#fff;
+		text-align:center;
+		font-size:55px;
+		font-weight:normal;
+	font-family:"arvo";
+}

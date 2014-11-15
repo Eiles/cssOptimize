@@ -61,11 +61,18 @@ int main(int argc, const char * argv[]) {
         free(buffer2);
         fclose(css);
     }
+    while(buffer[i]!='\0'){
+        if (buffer[i]=='\t'){
+            buffer[i]=' ';
+        }
+        i++;
+    }
     buffer = suppressNewline(buffer);
     buffer = suppressSpaceAccol(buffer);
     buffer = suppressSpaceDeuxPoint(buffer);
     buffer = suppressSpacePointVirg(buffer);
     buffer = suppressComments(buffer);
+    i=0;
     t_tag* list=NULL;
     populate_tags(&list,buffer);
     keep_last_prop(&list);

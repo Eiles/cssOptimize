@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-W -Wall -ansi -pedantic
 LDFLAGS=
-EXEC=cssOptimizer
+EXEC=css_optimizer
 SRC=$(wildcard *.c)
 OBJ=$(SRC:.c=.o)
 PREFIX=$(DESTDIR)/usr/local
@@ -9,7 +9,7 @@ BINDIR=$(PREFIX)/bin
 
 all: $(EXEC)
 
-cssOptimizer: $(OBJ)
+css_optimizer: $(OBJ)
 	@$(CC) -o $@ $^ $(LDFLAGS)
 
 %.c: %.h
@@ -27,6 +27,8 @@ mrproper: clean
 
 install:
 	install $(EXEC) $(BINDIR)/$(TARGET)
+	cp css_optimizerman /usr/share/man/man1/css_optimizer.1
 
 uninstall:
 	rm $(BINDIR)/$(EXEC)
+	rm /usr/share/man/man1/css_optimizer.1
