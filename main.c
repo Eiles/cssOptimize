@@ -71,8 +71,12 @@ int main(int argc, const char * argv[]) {
     keep_last_prop(&list);
     factorize(&list);
     list_tag_remove_empty_tags(&list);
-    writeBeautiful(list, output);
-    
+    output=fopen(argv[argc-1], "w");
+    if(beauty){
+        writeBeautiful(list, output);
+    }else{
+        writeMinimized(list, output);
+    }
     fclose(output);
     list_tag_free(&list);
     free(buffer);
