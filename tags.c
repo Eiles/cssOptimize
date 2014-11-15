@@ -17,6 +17,8 @@ t_tag* list_tag_create(char* name,t_properties* props){
 }
 
 void list_tag_display(t_tag* list){
+    if(list==NULL)
+        return;
     printf("%s{\n",list->name);
     list_prop_display(list->props);
     printf("}\n");
@@ -71,6 +73,14 @@ void list_tag_append(t_tag** list, char* name, t_properties* props){
     tmp->next=m;
 }
 
+void list_tag_remove_all_prop_by_prop_value(t_tag** list, char* prop, char* value){
+    t_tag* m=(*list);
+    while(m!=NULL){
+        list_prop_remove_by_prop_value(&m->props,prop,value);
+        m=m->next;
+    }
+}
+
 void list_tag_insert(t_tag** list, unsigned int index, char* name,t_properties* props){
     t_tag* m= list_tag_create(name, props);
     t_tag* tmp=(*list);
@@ -104,6 +114,45 @@ int list_tag_get_by_name(t_tag* maillon,char* name){
         maillon=maillon->next;
     }
     return -1;
+}
+
+char* list_tag_get_all_with_prop_value(t_tag* maillon,char* prop,char* value){
+    char* string=malloc(sizeof(char)*1);
+    string[0]='\0';
+    int first=1;
+    if(maillon == NULL)
+        return string;
+    while (maillon!=NULL) {
+        if(list_prop_get_by_prop_value(maillon->props, prop, value)!=-1){
+            if(first){
+                string=my_strcpy(maillon->name);
+                first=0;
+            }else{
+                string=my_strconcat(string,",");
+                string=my_strconcat(string, maillon->name);
+            }
+        }
+        maillon=maillon->next;
+    }
+    return string;
+}
+
+void list_tag_remove_empty_tags(t_tag** list){
+    if((*list)==NULL)
+        return;
+    t_tag*t=(*list);
+    int index=0;
+    while(t!=NULL){
+        if(t->props==NULL){
+            t=t->next;
+            list_tag_remove_index(list, index);
+            index--;
+        }
+        else{
+            t=t->next;
+        }
+        index++;
+    }
 }
 
 

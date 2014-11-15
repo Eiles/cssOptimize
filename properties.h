@@ -31,4 +31,5 @@ void list_prop_free(t_properties** maillon);
 int list_prop_get_by_prop(t_properties* maillon, char* prop);
 char* list_prop_get_prop_by_index(t_properties* maillon, int index);
 char* list_prop_get_value_by_index(t_properties* maillon, int index);
+void list_prop_remove_by_prop_value(t_properties** list,char* prop,char* value);
 #endif /* defined(__cssOptimize__properties__) */

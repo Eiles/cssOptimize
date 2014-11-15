@@ -13,5 +13,6 @@
 #include "tags.h"
 
 void keep_last_prop(t_tag** list);
+void factorize(t_tag** list);
 
 #endif /* defined(__cssOptimize__optimize__) */

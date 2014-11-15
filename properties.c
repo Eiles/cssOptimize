@@ -17,6 +17,8 @@ t_properties* list_prop_create(char* prop,char* value){
 }
 
 void list_prop_display(t_properties* list){
+    if(list==NULL)
+        return;
     printf("\t%s:%s\n",list->prop,list->value);
     if(list->next != NULL)
         list_prop_display(list->next);
@@ -34,7 +36,7 @@ unsigned int list_prop_size(t_properties* maillon){
 }
 
 void list_prop_remove_index(t_properties** list, unsigned int index){
-    t_properties* f=*list;
+    t_properties* f=(*list);
     
     t_properties* tmp;
     if(index>=list_prop_size(*list)){
@@ -68,6 +70,13 @@ void list_prop_append(t_properties** list, char* prop, char* value){
     }
     m->next=tmp->next;
     tmp->next=m;
+}
+
+void list_prop_remove_by_prop_value(t_properties** list,char* prop,char* value){
+    int index;
+    index=list_prop_get_by_prop_value(*list, prop, value);
+    list_prop_remove_index(list, index);
+    
 }
 
 void list_prop_insert(t_properties** list, unsigned int index, char* prop,char* value){
@@ -155,6 +164,8 @@ char* list_prop_get_value_by_index(t_properties* maillon, int index){
 
 void list_prop_free(t_properties** maillon){
     t_properties* p;
+    if(*maillon==NULL)
+        return;
     while((*maillon)->next!=NULL){
         p=(*maillon)->next;
         free(*maillon);
