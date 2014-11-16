@@ -40,7 +40,7 @@ int main(int argc, const char * argv[]) {
     long numbytes2=0;
     FILE * css;
     char* buffer=malloc(sizeof(char));
-    buffer[0]='c';
+    buffer[0]='\0';
     char* buffer2;
     int i;
     FILE *output;
