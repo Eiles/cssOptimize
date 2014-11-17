@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-W -Wall -ansi -pedantic
+CFLAGS=-W -Wall -pedantic
 LDFLAGS=
 EXEC=css_optimizer
 SRC=$(wildcard *.c)
