@@ -8,7 +8,7 @@ void writeBeautiful(t_tag* list, FILE * result) {
     while(tmp_tag != NULL)
     {
         fputs(tmp_tag->name, result);
-        fputs("\n{\n", result);
+        fputs(" {\n", result);
 
         tmp_prop = tmp_tag->props;
         while(tmp_prop != NULL)
