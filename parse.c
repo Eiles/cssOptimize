@@ -10,7 +10,7 @@
 
 
 void populate_tags(t_tag** list,char* string){
-    int i=0,j=0;
+    int i=0,j=0,flag=0;
     char* ids;
     char* prop="";
     char* value="";
@@ -29,11 +29,19 @@ void populate_tags(t_tag** list,char* string){
                         j=i;
                     }
                     i++;
+                    if (string[i]=='}') {
+                        flag=1;
+                        break;
+                    }
                 }
                 value=my_substr(string, i-j, j);
                 list_prop_append(&props,prop,value);
-                i++;
+                
+                if(!flag){
+                    i++;
+                }
                 j=i;
+                flag=0;
             }
             parseID(list,ids,props);
             //list_prop_free(&props);
